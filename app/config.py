@@ -10,7 +10,8 @@ class Config:
     DEBUG = True
 
     # Connect to the database.
-    SQLALCHEMY_DATABASE_URI = os.environ.get('POSTGRESQL') + os.environ.get('db_name')
+    SQLALCHEMY_DATABASE_URI = "postgresql://postgres:250787388219@localhost:5432/sebadb"
+    print(os.environ.get('POSTGRESQL'))
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLALCHEMY_ECHO = True
 

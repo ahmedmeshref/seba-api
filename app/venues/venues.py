@@ -20,7 +20,7 @@ venues = Blueprint("venues", __name__)
 
 
 @venues.route("/venues", methods=["GET"])
-def get_questions():
+def get_venues():
     """handles GET requests for getting questions questions. Results are paginated in groups of 10 questions.
     @rtype: JSON object
     """
@@ -42,7 +42,7 @@ def get_questions():
 
 
 @venues.route("/venues", methods=["POST"])
-def create_question():
+def create_venue():
     """ handles creating new venues with a post request.
     @rtype: JSON object
     """
@@ -53,10 +53,9 @@ def create_question():
     new_venue = set_attributes_all_required(venue_ins, attrs, data)
 
     error = False
-    venue_details = {}
     try:
         new_venue.insert()
-        venue = db.session.query(Venue).get(new_venue.id).all()
+        venue = new_venue.format()
     except Exception as e:
         error = True
         db.session.rollback()
@@ -67,5 +66,5 @@ def create_question():
     abort_error_if_any(error, 422)
     return jsonify({
         'success': True,
-        'venues': venue
+        'venue': venue
     })

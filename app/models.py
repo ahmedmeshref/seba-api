@@ -50,8 +50,8 @@ class Venue(db.Model):
         return f'Venue <{self.id}, {self.name}, {self.city}>'
 
     def __dir__(self):
-        return ['name', 'city', 'address', 'image_link', 'genres', 'facebook_link',
-                'website']
+        return ['name', 'city', 'address', 'image_link', 'facebook_link',
+                'website', 'user_id']
 
 
 class User(db.Model):

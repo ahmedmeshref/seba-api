@@ -69,3 +69,4 @@ migrations/
 seba_api/
 .idea/
 .vscode/
+.env
